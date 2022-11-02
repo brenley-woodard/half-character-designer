@@ -20,21 +20,21 @@ headDropdown.addEventListener("change", (e) => {
   const value = e.target.value;
   headCount++;
   headEl.style.backgroundImage = `url("./assets/${value}-head.png")`;
-  // update the stats to show the new count (call displayStats() to do this work)
+  displayStats();
 });
 
 middleDropdown.addEventListener("change", (e) => {
   const value = e.target.value;
   middleCount++;
   middleEl.style.backgroundImage = `url("./assets/${value}-middle.png")`;
-  // update the stats to show the new count (call displayStats() to do this work)
+  displayStats();
 });
 
 bottomDropdown.addEventListener("change", (e) => {
   const value = e.target.value;
   bottomCount++;
   bottomEl.style.backgroundImage = `url("./assets/${value}-pants.png")`;
-  // update the stats to show the new count (call displayStats() to do this work)
+  displayStats();
 });
 
 catchphraseButton.addEventListener("click", () => {
@@ -46,6 +46,8 @@ catchphraseButton.addEventListener("click", () => {
 
 function displayStats() {
   // text content of the reportEl to tell the user how many times they've changed each piece of the state
+  reportEl.textContent = `You have changed the head ${headCount} times, the body ${middleCount} times,
+   and the pants ${bottomCount} times.`;
 }
 
 function displayCatchphrases() {
