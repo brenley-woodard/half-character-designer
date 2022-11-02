@@ -14,7 +14,7 @@ let headCount = 0;
 let middleCount = 0;
 let bottomCount = 0;
 
-let catchphrase = ["testing"];
+let catchphrases = [];
 
 headDropdown.addEventListener("change", (e) => {
   const value = e.target.value;
@@ -39,24 +39,24 @@ bottomDropdown.addEventListener("change", (e) => {
 
 catchphraseButton.addEventListener("click", () => {
   const catchphraseValue = catchphraseInput.value;
-  catchphrase.push(catchphraseValue);
+  catchphrases.push(catchphraseValue);
   catchphraseInput.value = "";
-  // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
+  displayCatchphrases();
 });
 
 function displayStats() {
-  // text content of the reportEl to tell the user how many times they've changed each piece of the state
   reportEl.textContent = `You have changed the head ${headCount} times, the body ${middleCount} times,
    and the pants ${bottomCount} times.`;
 }
 
 function displayCatchphrases() {
-  // clear out the DOM for the currently displayed catchphrases
   catchphrasesEl.textContent = "";
-  // loop through each catchphrase in state
-  // and for each catchphrase
-  // create an HTML element with the catchphrase as its text content
-  // and append that HTML element to the cleared-out DOM
+
+  for (let catchphrase of catchphrases) {
+    const p = document.createElement("p");
+    p.textContent = catchphrase;
+    catchphrasesEl.append(p);
+  }
 }
 
 displayStats();
