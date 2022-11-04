@@ -21,7 +21,7 @@
         "no-console": "warn",
         "indent": [
             "error",
-            2,
+            4,
             {
                 "SwitchCase": 1,
                 "ignoreComments": true
@@ -29,7 +29,7 @@
         ],
         "quotes": [
             "error",
-            "double",
+            "single",
             {
                 "avoidEscape": true,
                 "allowTemplateLiterals": true
